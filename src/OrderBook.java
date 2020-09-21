@@ -49,6 +49,9 @@ public class OrderBook {
                     }
                     removeOrder(currOrder.getOrderId());
                     idToPriceTreeMap.remove(currOrder.getOrderId());
+                    if (incomingQuantity == 0) {
+                        break;
+                    }
                 } else {
                     currOrder.setQuantity(currOrder.getQuantity() - incomingQuantity);
                     if (side == SIDE.ASK) {
